@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Profound Programmer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Profound Programmer</h1>
+    <div class="gallery" id="gallery"></div>
+
+    <div class="modal" id="modal" onclick="this.style.display='none'">
+        <img id="modal-img" src="">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageList = [
+                "pQEZ8.jpeg", "NYKQ8.jpeg", "YiSb0.jpeg", "peqZj.jpeg", "A6XRc.jpeg",
+                "iev8H.jpeg", "oMTmd.jpeg", "TS77f.jpeg", "0fVfB.jpeg", "ZxkGv.jpeg",
+                "HmQiE.jpeg", "arcqG.jpeg", "vyNwm.jpeg", "3yhwL.jpeg", "0J671.jpeg",
+                "KY6Bb.jpeg", "jEswi.jpeg", "IsJe5Og.jpeg", "8lM9HtJ.jpeg", "4ENXUBt.jpeg",
+                "DJOp6OW.jpeg", "4Ak9l18.jpeg", "T5XTzBH.jpeg", "WwYj0YY.jpeg", "bwygRd8.jpeg",
+                "PHiNDId.jpeg", "ju0oH2Q.jpeg", "wimz70n.jpeg", "uMuoeuC.jpeg", "tIc0M.jpeg",
+                "gVFAO.jpeg", "hPpN5.jpeg", "JFQfX.jpeg", "AAZZx.jpeg", "BkS0Y.jpeg",
+                "lxOZO.jpeg", "7Ouj7.jpeg", "6dvk2.jpeg", "V6HDZ.jpeg", "j4y7U.jpeg",
+                "EdTjP.jpeg", "NXOGi.jpeg", "v1iFQ.jpeg", "79Izo.jpeg", "KeamC.jpeg",
+                "v51lc.jpeg", "vOSyZ.jpeg", "f5uGQ.jpeg", "wW7or.jpeg", "c9ddn.jpeg",
+                "ES6sP.jpeg", "wyi6Z.jpeg", "xDFpC.jpeg", "XJWvh.jpeg", "x3hLj.jpeg",
+                "HYwiD.jpeg", "lmD2vc3.png", "iAwp2Nr.png"
+            ];
+            
+            const gallery = document.getElementById("gallery");
+            imageList.forEach(image => {
+                let img = document.createElement("img");
+                img.src = `images/${image}`;
+                img.alt = "Gallery Image";
+                img.onclick = function () {
+                    document.getElementById("modal-img").src = `images/${image}`;
+                    document.getElementById("modal").style.display = "flex";
+                };
+                gallery.appendChild(img);
+            });
+        });
+    </script>
+</body>
+</html>
